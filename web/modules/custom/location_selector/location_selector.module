@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function location_selector_theme($existing, $type, $theme, $path) {
+  return [
+    'location_selector' => [
+      'variables' => [
+        'user_country_detected_code' => NULL,
+        'user_country_detected_name' => NULL
+      ],
+    ],
+  ];
+}

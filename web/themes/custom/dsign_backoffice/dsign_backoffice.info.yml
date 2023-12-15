@@ -1,0 +1,21 @@
+name: Dsign Backoffice
+type: theme
+base theme: claro
+description: A flexible theme with a responsive, mobile-first layout.
+package: Custom
+core_version_requirement: ^9.0 || ^10.0
+libraries:
+  - dsign_backoffice/global
+regions:
+  main_menu: 'Main menu'
+  header: 'Header'
+  pre_content: 'Pre-content'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
+regions_hidden:
+  - sidebar_first

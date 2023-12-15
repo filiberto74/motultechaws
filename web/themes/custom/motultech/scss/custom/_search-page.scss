@@ -1,0 +1,114 @@
+.block-views-exposed-filter-blocksearch-block-1{
+  background: $grigio-chiaro;
+  padding: $spacing;
+  border-radius: $border-radius;
+  margin: $spacing 0;
+  .form-actions,
+  label{
+    display: none;
+  }
+}
+.view-search{
+  &.view-display-id-block_1{
+    .wrapper-card{
+      @include media-breakpoint-up(md){
+        border-bottom: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+  margin-bottom: calc($spacing * 2);
+  .view-content{
+    .views-row{
+      flex-basis: 100%;
+      display: flex;
+      flex-direction: column;
+      @include media-breakpoint-up(md){
+        flex-basis: 50%;
+      }
+      @include media-breakpoint-up(lg){
+        flex-basis: 33%;
+      }
+
+    }
+  }
+  .view-footer{
+    position: relative;
+    text-align: right;
+    margin-top: $spacing;
+    &:after{
+      content: "";
+      height: 3px;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      background: $text-color;
+      z-index: 1;
+    }
+    &:before{
+      content: "";
+      background: $bianco;
+      width: $spacing;
+      height: 1rem;
+      display: inline-block;
+      z-index: 2;
+      position: relative;
+      right: -1ex;
+    }
+    a{
+      position: relative;
+      z-index: 2;
+      border: 3px solid $text-color;
+      border-radius: 0;
+      color: $text-color;
+      font-weight: 500;
+      padding: calc($spacing / 3) $spacing;
+      background: $bianco;
+      &:hover{
+        background: $text-color;
+        color: $bianco;
+      }
+
+    }
+  }
+  .view-empty{
+    border: 1px solid $grigio-chiaro;
+    border-radius: $border-radius;
+    padding: calc($spacing / 2);
+    text-align: center;
+    margin-bottom: $spacing;
+  }
+  &[class*='view-display-id-page_']{
+    .view-empty{
+      border-width: 2px;
+      padding: calc($spacing * 3) $spacing;
+    }
+  }
+}
+#block-noresults{
+  border: 2px solid $grigio-chiaro;
+  border-radius: $border-radius;
+  padding: calc($spacing * 3) $spacing;
+  text-align: center;
+  margin-bottom: $spacing;
+}
+#block-views-block-search-block-1,
+#block-views-block-search-block-2{
+  .view-content{
+    .views-row{
+      @include media-breakpoint-up(md){
+        &:nth-child(3){
+          display: none;
+        }
+      }
+      @include media-breakpoint-up(lg){
+        &:nth-child(3){
+          display: flex;
+        }
+      }
+    }
+  }
+}

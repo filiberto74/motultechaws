@@ -1,0 +1,7 @@
+<div class="splash-page">
+    <img src="/{{ base_path ~ directory }}/images/motultech_logo.png" alt="" />
+    <h3>{{'CHOOSE YOUR LOCATION'|t}}</h3>
+    <div class="message">{{ 'You appear to be browsing from'|t }} {{ user_country_detected_name }}</div>
+    <a class="procede" href="/set-location/{{ user_country_detected_code }}" class="btn btn-primary">{{ 'Proceed to'|t }} {{ user_country_detected_name }}</a>
+    <a class="change" href="/?lsmodal=true" class="btn btn-primary">{{ 'Change location/language'|t }}</a>
+</div>

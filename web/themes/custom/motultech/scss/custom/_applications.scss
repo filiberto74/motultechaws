@@ -1,0 +1,99 @@
+
+.block-views-blockapplications-tax-data{
+    margin-bottom: calc($spacing * 2);
+    .views-row{
+        img{
+            width: 100%;
+            height: auto;
+            min-height: 300px;
+            border-radius: $border-radius;
+            margin: $spacing 0 calc($spacing * 2) 0; 
+        }
+    }
+}
+.view-applications{
+    &.view-display-id-parent_taxonomy{
+       .view-content{
+        .taxonomy-card-link{
+            margin-bottom: calc(var(--bs-gutter-x));
+            min-height: 192px;
+            display: flex;
+            flex-direction: column;
+            .inner-wrapper{
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: 50% 50%;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                border-radius: $border-radius;
+                padding: $spacer;
+                overflow: hidden;
+                &:before{
+                    content: "";
+                    background: $overlay;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                }
+            }
+        }
+       } 
+    }
+    &.view-display-id-application_page{
+        margin-bottom: $spacing;
+        .view-content{
+         .taxonomy-card-link{
+             margin-bottom: calc(var(--bs-gutter-x));
+             display: flex;
+             flex-direction: column;
+             .inner-wrapper{
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                border-radius: $border-radius;
+                padding: $spacer;
+                overflow: hidden;
+                background: $grigio;
+                .content{
+                    flex-grow: 1;
+                    .body{
+                        border-right: 1px solid $border-color;
+                    }
+                }
+             }
+         }
+        } 
+     }
+}
+.wrapper-related-applications{
+    margin-top: $spacing;
+    margin-bottom: $spacing;
+    .view-related-applications{
+        .view-content{
+         .taxonomy-card-link{
+             margin-bottom: calc(var(--bs-gutter-x));
+             display: flex;
+             flex-direction: column;
+             .inner-wrapper{
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                border-radius: $border-radius;
+                padding: $spacer;
+                overflow: hidden;
+                background: $grigio;
+                .content{
+                    flex-grow: 1;
+                    .body{
+                        border-right: 1px solid $border-color;
+                    }
+                }
+             }
+         }
+        } 
+     }
+}

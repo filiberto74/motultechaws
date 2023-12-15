@@ -1,0 +1,21 @@
+
+tr[data-hierarchy-level='1']{
+     td.views-tree-hierarchy-cell.views-field-title{
+        font-weight: bold;
+         a{
+            font-weight: bold;
+         }
+    }
+}
+tr[data-hierarchy-level='2'] .views-tree-hierarchy-cell{
+    padding-left: 30px;
+}
+tr[data-hierarchy-level='3'] .views-tree-hierarchy-cell{
+    padding-left: 35px;
+}
+tr[data-hierarchy-level='4'] .views-tree-hierarchy-cell{
+    padding-left: 40px;
+}
+tr[data-hierarchy-level='5'] .views-tree-hierarchy-cell{
+    padding-left: 50px;
+}

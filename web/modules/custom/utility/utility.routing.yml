@@ -1,0 +1,7 @@
+utility.clear_cache:
+  path: 'admin/clear-cache'
+  defaults:
+    _controller: 'Drupal\utility\Controller\utility_Controller::clear_cache'
+    _title: ''
+  requirements:
+    _role: 'administrator+webmaster'

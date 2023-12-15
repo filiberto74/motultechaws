@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function mymotul_theme($existing, $type, $theme, $path) {
+  return [
+    'mymotul' => [
+      'variables' => [
+        'data' => [],
+        'link_mymotul' => NULL,
+        'tab_panes' => NULL,
+      ],
+    ],
+  ];
+}

@@ -1,0 +1,67 @@
+.field--name-field-address,
+.field--name-field-email,
+.field--name-field-fax,
+.field--name-field-phone,
+.field--name-field-website{
+  padding-left: $spacing;
+  margin-bottom: calc($spacing / 2);
+  &::before{
+    float: left;
+    margin-left: -$spacing;
+  }
+}
+
+.field--name-field-address{
+  &::before{
+    content: url('../images/custom-icons/pin.svg');
+  }
+}
+
+.field--name-field-email{
+  &::before{
+    content: url('../images/custom-icons/mail.svg');
+  }
+}
+
+.field--name-field-phone{
+  &::before{
+    content: url('../images/custom-icons/phone.svg');
+  }
+}
+
+.field--name-field-fax{
+  &::before{
+    content: url('../images/custom-icons/phone.svg');
+  }
+}
+
+.field--name-field-website{
+  &::before{
+    content: url('../images/custom-icons/link.svg');
+  }
+}
+
+
+.views-field-field-telephone{
+  a{
+    padding-left: $spacing;
+    margin-bottom: calc($spacing / 2);
+    display: inline-block;
+    &::before{
+      content: url('../images/custom-icons/phone.svg');
+      float: left;
+      margin-left: -$spacing;
+    }
+  }
+}
+.field--name-field-external-link{
+  .field__item{
+    a{
+      font-weight: 500;
+      &::after{
+        content: url('../images/custom-icons/external-link.svg');
+        padding-left: 0.5rem;
+      }
+    }
+  }
+}

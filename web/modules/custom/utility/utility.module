@@ -1,0 +1,87 @@
+<?php
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function utility_views_pre_view(ViewExecutable $view, string $display_id, array $args) {
+  // procedura automatica di set del filtro in base al cookie se presente
+  if ($view->id() === 'reseller') {
+    if(isset($_COOKIE['MotulTech_User_Location'])) {
+      $cookie = $_COOKIE['MotulTech_User_Location'];
+      // recupero l'id della tassonomia tramite il campo field_iso_2
+      $result = Drupal::database()->query("SELECT entity_id FROM taxonomy_term__field_iso_2 WHERE field_iso_2_value LIKE '$cookie'")->fetchAll();
+      if($result){
+        $tid = $result[0]->entity_id;
+        // recupero se ci sono filtri gia impostati
+        $exposed_input = $view->getExposedInput();
+        // se non c'è un filtro gia impostato lo setto con il cookie
+        if (!$exposed_input) {
+          $exposed_input = array("country" => $tid);
+          // $exposed_input['country'] = strtolower($exposed_input['country']);
+          $view->setExposedInput($exposed_input);
+        }
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function utility_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'webform_submission_contact_node_34_add_form') {
+    array_unshift($form['actions']['submit']['#submit'], 'utility_submit');
+  }
+}
+/**
+ * Custom webform submit handler.
+ */
+function utility_submit(&$form, FormStateInterface $form_state) {
+  $cid = $form_state->getValue('country');
+  $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
+    'field_countries' => $cid,
+  ]);
+
+  $arr_emails = [];
+  foreach ($nodes as $node) {
+    array_push($arr_emails, $node->get('field_email')->value);
+  }
+
+  if (count($arr_emails) > 0) {
+    $emails = implode(", ", $arr_emails);
+  } else {
+    $emails = 'support.motultech@fr.motul.com';
+  }
+
+  $form_state->setValue('recipients', $emails);
+}
+
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function utility_views_pre_render(\Drupal\views\ViewExecutable $view) {
+  // Verifica se la vista è di tipo "backoffice_pages"
+  if ($view->id() == 'backoffice_pages') {
+    // Array per tenere traccia degli elementi già visti
+    $seen_items = array();
+
+    // Itera sui risultati della vista
+    foreach ($view->result as $key => $result) {
+      // Costruisci una chiave univoca basata su ID e lingua
+      $unique_key = $result->nid . '_' . $result->node_field_data_langcode;
+      // dump($unique_key);
+      // Verifica se l'elemento è un duplicato
+      if (in_array($unique_key, $seen_items)) {
+        // Rimuovi il duplicato
+        unset($view->result[$key]);
+      } else {
+        // Aggiungi l'elemento all'array degli elementi visti
+        $seen_items[] = $unique_key;
+      }
+    }
+  }
+}

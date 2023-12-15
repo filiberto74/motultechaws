@@ -1,0 +1,5 @@
+name: Language switcher
+type: module
+description: "Language switcher custom block"
+package: MOTULTECH
+core_version_requirement: ^9.0 || ^10.0

@@ -1,0 +1,13 @@
+{
+    "name": "drupal/country_path",
+    "type": "drupal-module",
+    "description": "Adds custom path prefix for multi-countries sites.",
+    "homepage": "https://www.drupal.org/project/country_path",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": "^7.3 || ^8.0",
+        "drupal/core": "^8.8 || ^9 || ^10",
+        "drupal/domain": "^1.0.0-beta7 || ^2"
+    },
+    "minimum-stability": "dev"
+}

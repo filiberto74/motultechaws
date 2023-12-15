@@ -1,0 +1,111 @@
+.node--type-news{
+  &.node--view-mode-full{
+    margin-bottom: $spacing;
+    .wrapper-image{
+      margin-bottom: calc($spacing / 3 * 2);
+      .field--name-field-media-image{
+        border-radius: $border-radius;
+        overflow: hidden;
+        img{
+          margin: 0;
+          width: 100%;
+          height: auto;
+        }
+      }
+      &.has-video{
+        .field--name-field-media-image{
+          // img{
+            position: relative;
+            z-index: 2;
+            &:before{
+              content: "";
+              position: absolute;
+              z-index: 3;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              background: $overlay;
+            }
+            &:after{
+              content: url('../images/custom-icons/play.svg');
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              z-index: 4;
+              zoom: 200%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          // }
+        }
+      }
+    }
+    .wrapper-title-news{
+      background: $grigio;
+      border-radius: $border-radius;
+      padding: $spacing;
+      margin-bottom: $spacing;
+      .metadati{
+        span.data,
+        span.category{
+          display: inline-block;
+          margin-bottom: calc($spacing / 3 * 2);
+        }
+        span.data{
+          margin-right: calc($spacing / 3 * 2);
+        }
+        span.category{
+          *{
+            display: inline-block;
+            margin: 0;
+          }
+          &:before{
+            content: url('../images/custom-icons/category.svg');
+            padding-right: calc($spacing / 4);
+          }
+        }
+      }
+    }
+    .back-to-archive{
+      margin-top: $spacing;
+      text-align: center;
+      position: relative;
+      span{
+        position: relative;
+        z-index: 2;
+        background: $bianco;
+        display: inline-block;
+        padding-left: $spacing;
+        padding-right: $spacing;
+      }
+      a{
+        position: relative;
+        z-index: 2;
+        background: $bianco;
+        &:hover{
+          background: $text-color;
+        }
+      }
+      &:before{
+        content: "";
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        background: $text-color;
+      }
+      @include media-breakpoint-up(md){
+        text-align: right;
+        span{
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}

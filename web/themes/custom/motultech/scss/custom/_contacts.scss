@@ -1,0 +1,51 @@
+#block-contactsblocchiform{
+  #block-contactscolonnablocchi{
+    #block-motultechheadquarter,
+    #block-social,
+    #block-localdistributors .content,
+    #block-views-block-reseller-block-1{
+      background: $grigio;
+      padding: $spacing;
+      border-radius: $border-radius;
+      margin-bottom: $spacing;
+    }
+    // #block-views-block-reseller-block-1{
+    //   .view-filters,
+    //   .view-content,
+    //   .view-empty{
+    //     text-align: center;
+    //   }
+    // }
+    #block-mymotul-2{
+      position: relative;
+      flex-basis: 100%;
+      background-color: $grigio;
+      border-radius: $border-radius;
+      padding: $spacing;
+      margin-bottom: calc($spacing / 2);
+      .icon{
+        text-align: center;
+        img{
+          max-width: 80px;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    @include media-breakpoint-only(md){
+      #block-mymotul-2{
+        .icon{
+          margin-bottom: calc($spacing / 3);
+        }
+      }
+    }
+  }
+  #block-contactscolonnaform{
+    // #block-webform{
+      background: $grigio;
+      padding: $spacing;
+      border-radius: $border-radius;
+      margin-bottom: $spacing;
+    // }
+  }
+}

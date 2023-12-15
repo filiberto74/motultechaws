@@ -1,0 +1,23 @@
+location_selector.choose_your_location:
+  path: '/choose-your-location'
+  defaults:
+    _controller: 'Drupal\location_selector\Controller\location_selector_Controller::choose_your_location'
+    _title: ''
+  requirements:
+    _permission: 'access content'
+
+location_selector.set_location:
+  path: '/set-location/{country_code}'
+  defaults:
+    _controller: 'Drupal\location_selector\Controller\location_selector_Controller::set_location'
+    _title: ''
+  requirements:
+    _permission: 'access content'
+
+location_selector.change_location:
+  path: '/change-location'
+  defaults:
+    _controller: 'Drupal\location_selector\Controller\location_selector_Controller::change_location'
+    _title: ''
+  requirements:
+    _permission: 'access content'

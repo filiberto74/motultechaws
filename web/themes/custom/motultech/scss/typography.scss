@@ -1,0 +1,356 @@
+/* TYPOGRAPHY */
+
+/* Google Fonts */
+
+//@import url("https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic,900,900italic");
+//@import url("https://fonts.googleapis.com/css?family=Raleway:400,300,500,600,700,800,900");
+// font families
+
+
+// Font, line-height, and color for body text, headings, and more.
+$font-family-base: 'Graphik';
+$font-size-base: 1.125rem; // Assumes the browser default, typically `16px`
+$font-size-lg: $font-size-base * 1.25;
+$font-size-sm: $font-size-base * .875;
+$font-size-xs: $font-size-base * .75;
+$font-weight-normal: normal;
+$font-weight-bold: bold;
+$font-weight-base: $font-weight-normal;
+$line-height-base: 1.5;
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+
+body{
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}
+.breadcrumb{
+  font-size: 16px!important;
+}
+h1, h2, h3, h4, h5, h6{
+  color: $title-color;
+  font-family: $font-family-base;
+  &.green{
+    color: $verde;
+  }
+}
+h1{
+  font-weight: bold;
+  @include font-size(3.125rem);
+  line-height: 1.1;
+  &.news{
+    @include font-size(2.25rem);
+  }
+}
+ul.pagination{
+  li{
+    a,span{
+      @include font-size(1.625rem);
+    }
+  }
+}
+.field--name-body{
+  line-height: 1.2;
+}
+.paragraph h4.paragraph-title{
+  font-weight: bold;
+  @include font-size(1.875rem);
+  line-height: 1.1;
+  &.green{
+    color: $verde;
+
+  }
+}
+.paragraph{
+  .field--name-field-text.field--type-text-long{
+    line-height: 1.2;
+  }
+}
+
+.wrapper-header-grafico h1,
+.wrapper-header-nografico h1{
+  font-weight: bold;
+  @include font-size(3.125rem);
+  line-height: 1.1;
+}
+.wrapper-header-grafico h2,
+.wrapper-header-nografico h2{
+  font-weight: bold;
+  @include font-size(1.875rem);
+  line-height: 1.1;
+}
+.wrapper-header-grafico h1,
+.wrapper-header-grafico h2{
+  text-align: right;
+}
+
+.paragraph--type--documents{
+  .field--name-field-document{
+    .field__item{
+      a.document{
+        @include font-size(1.25rem);
+        line-height: 1.1;
+        font-weight: 500;
+        color: $rosso;
+        text-decoration: none;
+        div.metadati{
+          @include font-size(1rem);
+          font-weight: 400;
+          line-height: 1.2;
+          color: $text-color;
+        }
+      }
+    }
+  }
+}
+
+.paragraph--type--statement{
+  .field--name-field-text.field--type-text-long{
+    @include font-size(1.875rem);
+    line-height: 1.1;
+    font-weight: 400;
+    font-style: italic;
+  }
+}
+
+.wrapper-card{
+  .card-body{
+    .card-title{
+      @include font-size(1.563rem);
+      line-height: 1.1;
+      font-weight: bold;
+      color: $title-color;
+    }
+    .abstract{
+      @include font-size(1.125rem);
+      line-height: 1.2;
+    }
+    .data{
+      color: $card-data;
+      @include font-size(1rem);
+    }
+  }
+}
+
+
+
+// homepage
+.view-home-highlights{
+  #views-bootstrap-home-highlights-block-1,
+  #views-bootstrap-home-highlights-block-2,
+  #views-bootstrap-home-highlights-block-3{
+    .carousel-caption{
+      h3{
+        color: $bianco;
+        @include font-size(3.125rem);
+        line-height: 1.1;
+        font-weight: bold;
+        text-shadow: $text-shadow;
+        a{
+          color: $bianco;
+        }
+      }
+      p{
+        color: $bianco;
+        @include font-size(1.375rem);
+        line-height: 1.2;
+        a{
+          color: $bianco;
+        }
+      }
+    }
+  }
+}
+#block-views-block-home-news-block-1,
+#block-productfinder{
+  &>h2{
+    @include font-size(1.875rem);
+    line-height: 1.1;
+    font-weight: bold;
+  }
+}
+#block-motultechthemotulindustriallubricantsdivision,
+#block-machinegreensafesustainablemachininglubricantssolutions,
+#block-motultechservices,
+#block-support,
+#block-lubricantanalysis,
+#block-mymotul{
+  h2{
+    @include font-size(1.875rem);
+    line-height: 1.1;
+    font-weight: bold;
+  }
+  .field--name-body{
+    @include font-size(1.125rem);
+    line-height: 1.2;
+  }
+  a.btn{
+    @include font-size(1.25rem);
+  }
+}
+#block-support,
+#block-lubricantanalysis,
+#block-mymotul{
+  h2{
+    color: $rosso;
+  }
+}
+//  ---- homepage
+
+
+//pagina contatti
+#block-motultechheadquarter,
+#block-social,
+#block-contactscolonnaform,
+#block-localdistributors .content,
+#block-views-block-reseller-block-1{
+  &>h2{
+    @include font-size(1.25rem);
+    line-height: 1.1;
+    font-weight: bold;
+    margin-bottom: $spacing;
+  }
+}
+#block-localdistributors{
+  &>h2{
+    @include font-size(1.875rem);
+    line-height: 1.1;
+    font-weight: bold;
+  }
+}
+// ---- pagina contatti
+
+// pagina ricerca
+#block-exposedformsearchblock-1{
+  &>h2{
+    @include font-size(1.25rem);
+    font-weight: bold;
+  }
+}
+#block-views-block-search-block-1,
+#block-views-block-search-block-2{
+  &>h2{
+    @include font-size(1.875rem);
+    font-weight: bold;
+  }
+}
+
+// -----
+
+
+// footer
+footer.site-footer{
+  h2{
+    color: $bianco;
+    @include font-size(1rem);
+    font-weight: bold;
+    margin-bottom: $spacing;
+  }
+  .site-footer__top{
+    ul.nav{
+      li.nav-item{
+        a{
+          color: $bianco;
+          line-height: 1.1;
+        }
+      }
+    }
+  }
+  .site-footer__bottom{
+    *{
+      @include font-size(0.875rem);
+    }
+  }
+}
+
+// applications
+#block-views-block-applications-parent-taxonomy{
+  &>h2{
+    font-weight: bold;
+    @include font-size(1.875rem);
+    line-height: 1.1;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: calc($spacing / 2);
+    padding-bottom: calc($spacing / 2);
+  }
+}
+.view-applications.view-display-id-application_page{ 
+  .view-header > h2{
+    font-weight: bold;
+    @include font-size(1.875rem);
+    line-height: 1.1;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: calc($spacing / 2);
+    padding-bottom: calc($spacing / 2);
+  }
+}
+.block-views-blocknews-archive-block-2{
+  &>h2{
+    font-weight: bold;
+    @include font-size(1.875rem);
+    line-height: 1.1;
+    border-bottom: 1px solid $border-color;
+    margin-bottom: calc($spacing / 2);
+    padding-bottom: calc($spacing / 2);
+  }
+}
+h2.related-applications-title{
+  font-weight: bold;
+  @include font-size(1.875rem);
+  line-height: 1.1;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: calc($spacing / 2);
+  padding-bottom: calc($spacing / 2);
+}
+.view-applications{
+  &.view-display-id-parent_taxonomy{
+     .view-content{
+      .taxonomy-card-link{
+          .inner-wrapper{
+            h3{
+              color: $bianco;
+              z-index: 2;
+              font-weight: bold;
+              @include font-size(1.875rem);
+              line-height: 1.1;
+              text-transform: uppercase;
+            }
+          }
+      }
+     } 
+  }
+  &.view-display-id-application_page{
+    .view-content{
+     .taxonomy-card-link{
+         .inner-wrapper{
+            .content{
+              h3{
+                color: $rosso;
+                font-weight: bold;
+                @include font-size(1.25rem);
+                line-height: 1.1;
+              }
+              .description{
+                @include font-size(0.875rem);
+              }
+            }
+         }
+     }
+    } 
+ }
+}
+.view-related-applications{
+  h3{
+    color: $rosso;
+    font-weight: bold;
+    @include font-size(1.25rem);
+    line-height: 1.1;
+  }
+  .description{
+    @include font-size(0.875rem);
+  }
+}

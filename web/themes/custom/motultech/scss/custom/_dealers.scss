@@ -1,0 +1,66 @@
+.dealers-global-map {
+  h2 {
+    text-align: center;
+  }
+  ul.nav {
+    background-image: url(../images/world-map.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 50%;
+    margin-bottom: calc($spacer * 3);
+    justify-content: center;
+    li{
+      border: 3px solid $text-color;
+      margin-right: calc($spacing / 4);
+      margin-bottom: calc($spacing / 4);
+      &.last-child{
+        margin-right: 0;
+      }
+      a{
+        color: $text-color;
+      }
+    }
+    @media (min-width: 450px){
+      li{
+        border: none;
+        margin: 0;
+        a {
+          color: $rosso;
+          position: absolute;
+          &[data-drupal-link-system-path="taxonomy/term/4"] { // europe
+            top: 30%;
+            left: 45%;
+          }
+          &[data-drupal-link-system-path="taxonomy/term/5"] { // america
+            top: 50%;
+            left: 15%;
+          }
+          &[data-drupal-link-system-path="taxonomy/term/6"] { // africa
+            top: 50%;
+            left: 45%;
+          }
+          &[data-drupal-link-system-path="taxonomy/term/7"] { // asia
+            top: 30%;
+            right: 20%;
+          }
+          &[data-drupal-link-system-path="taxonomy/term/8"] { // india
+            top: 50%;
+            left: 64%;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+.node--type-dealer{
+  &.node--view-mode-teaser{
+    background: $grigio;
+    padding: $spacing;
+    border-radius: $border-radius;
+    border: 0;
+    margin-bottom: $spacing;
+  }
+}

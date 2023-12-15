@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function langswitcher_theme($existing, $type, $theme, $path) {
+  return [
+    'langswitcher' => [
+      'variables' => [
+        'data' => [],
+        'lang_links' => NULL,
+        'global_lang_links' => NULL,
+        'tab_panes' => NULL,
+      ],
+    ],
+  ];
+}

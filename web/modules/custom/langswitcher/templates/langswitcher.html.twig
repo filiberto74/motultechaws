@@ -1,0 +1,59 @@
+<div class="dropdown">
+    <!-- Lang Switcher Trigger -->
+    <button class="btn" type="button"
+            id="LangSwitcherDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="/{{ base_path ~ directory }}/images/custom-icons/langswitcher.svg" alt="Langs">
+    </button>
+    <ul id="lang-dropdown" class="dropdown-menu" aria-labelledby="LangSwitcherDropdown">
+        {{ lang_links }}
+        <li class="change-location-button">
+            <!-- Location Switcher Trigger -->
+            <button type="button" id="LocactionSwitcherModalTrigger" class="btn btn-primary"
+                    data-bs-toggle="modal" data-bs-target="#LocactionSwitcherModal">
+                Change location
+            </button>
+        </li>
+    </ul>
+</div>
+
+<!-- Location Switcher Modal -->
+<div class="modal fade" id="LocactionSwitcherModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="LocactionSwitcherModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header justify-content-end">
+                <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                  <img src="/{{ base_path ~ directory }}/images/custom-icons/close-button.svg" alt="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+
+              <div class="logo-motul text-center">
+                <img src="/{{ base_path ~ directory }}/images/logo.png" alt="MotulTech" />
+              </div>
+
+              {{ global_lang_links }}
+
+              <ul class="nav nav-pills nav-fill hidden-xs" id="pills-tab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="pills-america-tab" data-bs-toggle="pill" href="#pills-america" role="tab" aria-controls="pills-america" aria-selected="true">AMERICA</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="pills-europe-tab" data-bs-toggle="pill" href="#pills-europe" role="tab" aria-controls="pills-europe" aria-selected="false">EUROPE</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="pills-africa-tab" data-bs-toggle="pill" href="#pills-africa" role="tab" aria-controls="pills-africa" aria-selected="false">AFRICA</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="pills-asia-tab" data-bs-toggle="pill" href="#pills-asia" role="tab" aria-controls="pills-asia" aria-selected="false">ASIA</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="pills-india-tab" data-bs-toggle="pill" href="#pills-india" role="tab" aria-controls="pills-india" aria-selected="false">INDIA</a>
+                  </li>
+              </ul>
+
+              {{ tab_panes }}
+
+            </div>
+        </div>
+    </div>
+</div>

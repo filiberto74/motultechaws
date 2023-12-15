@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+      'taxonomy-card-link',
+      'col col-md-6',
+    ]
+  %}
+  <div{{ row.attributes.addClass(row_classes) }}>
+    <div class="inner-wrapper position-relative" style="background-image: url('{% apply spaceless %}{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}']|striptags }}{% endapply %}')">
+      <h3>{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ name }}'] }}</h3>
+      <a class="link-assoluto" href="{% apply spaceless %}{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ view_taxonomy_term }}']|striptags }}{% endapply %}"></a>
+    </div>
+  </div>
+{% endfor %}

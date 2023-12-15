@@ -1,0 +1,75 @@
+#block-machinegreensafesustainablemachininglubricantssolutions{
+    background: $grigio;
+    // background: $bianco;
+    // border: 3px solid $verde;
+    padding: $spacing;
+    border-radius: $border-radius;
+    margin-bottom:  calc($spacing * 2 - 10px);
+    background-image: url('../images/homepage/pattern_3_op.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom -250px left 12%;
+    @include media-breakpoint-only(md){
+      background-size: 220%;
+      background-position: bottom -340px left -5%;
+      h2{
+        padding-right: 40%;
+      }
+    }
+    @include media-breakpoint-up(lg){
+      background-size: 200%;
+      background-position: bottom -420px left -25%;
+    }
+    @include media-breakpoint-up(xl){
+      background-size: 200%;
+      background-position: bottom -420px left -40%;
+    }
+    .cta{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      a{
+        // width: 180px;
+        flex-basis: 49%;
+        white-space: nowrap;
+        margin-bottom: calc($spacing / 2);
+      }
+      @include media-breakpoint-only(md){
+        display: flex;
+        flex-direction: column;
+        a{
+          max-width: 180px;
+        }
+      }
+      @include media-breakpoint-up(lg){
+        display: block;
+        a{
+          min-width: 180px;
+        }
+      }
+    }
+    .img{
+      margin-top: calc($spacing * 2);
+      align-self: flex-end;
+      text-align: center;
+      img{
+        width: 100%;
+        height: auto;
+      }
+      @include media-breakpoint-only(md){
+        position: absolute;
+        width: 314px;
+        height: auto;
+        right: 12%;
+        bottom: 10%;
+      }
+      @include media-breakpoint-up(md){
+        margin-top: 0;
+        align-self: center;
+        img{
+          max-width: 500px;
+        }
+      }
+    }
+  }

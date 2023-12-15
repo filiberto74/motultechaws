@@ -1,0 +1,5 @@
+name: Location selector
+type: module
+description: "Location selector for MotulTech website"
+package: MOTULTECH
+core_version_requirement: ^9.0 || ^10.0

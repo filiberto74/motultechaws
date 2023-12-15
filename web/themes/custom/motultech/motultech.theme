@@ -1,0 +1,219 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the SASS Starterkit subtheme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use \Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_form_system_theme_settings_alter() for settings form.
+ *
+ * Replace Barrio setting options with subtheme ones.
+ */
+function motultech_form_system_theme_settings_alter(&$form, FormStateInterface $form_state)
+{
+  $form['components']['navbar']['bootstrap_barrio_navbar_top_background']['#options'] = array(
+    'bg-primary' => t('Primary'),
+    'bg-secondary' => t('Secondary'),
+    'bg-light' => t('Light'),
+    'bg-dark' => t('Dark'),
+    'bg-white' => t('White'),
+    'bg-transparent' => t('Transparent'),
+  );
+  $form['components']['navbar']['bootstrap_barrio_navbar_background']['#options'] = array(
+    'bg-primary' => t('Primary'),
+    'bg-secondary' => t('Secondary'),
+    'bg-light' => t('Light'),
+    'bg-dark' => t('Dark'),
+    'bg-white' => t('White'),
+    'bg-transparent' => t('Transparent'),
+  );
+}
+
+
+/**
+ * Implements hook_preprocess_page_title().
+ */
+function motultech_preprocess_page_title(&$variables)
+{
+  if (Drupal::service('path.matcher')->isFrontPage()) {
+    $variables['title'] = "";
+  }
+}
+
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function motultech_preprocess_page(&$variables)
+{
+  $current_page_path = \Drupal\Core\Url::fromRoute('<current>')->toString();
+  if ($variables['is_front']) {
+    $lsmodal = \Drupal::request()->query->get('lsmodal');
+    if (!isset($_COOKIE['MotulTech_User_Location']) && !$lsmodal) {
+      $response = new RedirectResponse('/choose-your-location');
+      $response->send();
+      exit;
+    }
+  }
+  if (substr($current_page_path, -8) == "/dealers") {
+    $loader = \Drupal::service('domain.negotiator');
+    $current_domain = $loader->getActiveDomain();
+    if ($current_domain->get('id') != "global") {
+      $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      $response = new RedirectResponse('/' . $current_domain->get("third_party_settings")["country_path"]["domain_path"] . '/' . $lang . '/dealers/' . $current_domain->get('id'));
+      $response->send();
+      exit;
+    }
+  }
+}
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function motultech_form_views_exposed_form_alter(&$form, $form_state, $form_id)
+{
+  $current_page_path = \Drupal\Core\Url::fromRoute('<current>')->toString();
+  if ($form['#id'] == "views-exposed-form-search-block-1") {
+    if (str_contains($current_page_path, "/search")) {
+      $form['#action'] = $current_page_path;
+    } else {
+      $loader = \Drupal::service('domain.negotiator');
+      $current_domain = $loader->getActiveDomain();
+      $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      if ($current_domain->get('id') != "global") {
+        $form['#action'] = '/' . $current_domain->get("third_party_settings")["country_path"]["domain_path"] . '/' . $lang . '/search';
+      } else {
+        $form['#action'] = '/' . $lang . '/search';
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function motultech_preprocess_paragraph(&$variables)
+{
+  $paragraph = $variables['elements']['#paragraph'];
+
+  if ($paragraph->getType() === 'text_only') {
+    $is_green = $paragraph->get('field_green_content')->getString();
+    $green_class = $is_green == 1 ? "green" : "";
+    $variables['green_class'] = $green_class;
+  }
+  if ($paragraph->getType() === 'text_and_image') {
+    $image_position = $paragraph->get('field_image_position')->getString();
+    $is_green = $paragraph->get('field_green_content')->getString();
+    $green_class = $is_green == 1 ? "green" : "";
+    $variables['image_position'] = $image_position;
+    $variables['green_class'] = $green_class;
+
+    $image_size = $paragraph->get('field_image_size')->getString();
+    $variables['image_size'] = ($image_size) ? $image_size : 'col-md-5';
+  }
+  if ($paragraph->getType() === 'big_image') {
+    $is_green = $paragraph->get('field_green_content')->getString();
+    $green_class = $is_green == 1 ? "green" : "";
+    $variables['green_class'] = $green_class;
+  }
+  if ($paragraph->getType() === 'documents') {
+    $is_green = $paragraph->get('field_green_content')->getString();
+    $green_class = $is_green == 1 ? "green" : "";
+    $variables['green_class'] = $green_class;
+  }
+  if ($paragraph->getType() === 'logos') {
+    $is_green = $paragraph->get('field_green_content')->getString();
+    $green_class = $is_green == 1 ? "green" : "";
+    $variables['green_class'] = $green_class;
+  }
+  if ($paragraph->getType() === 'statement') {
+    $is_green = $paragraph->get('field_green_content')->getString();
+    $green_class = $is_green == 1 ? "green" : "";
+    $variables['green_class'] = $green_class;
+  }
+  if ($paragraph->getType() === 'photogallery') {
+    $is_green = $paragraph->get('field_green_content')->getString();
+    $green_class = $is_green == 1 ? "green" : "";
+    $variables['green_class'] = $green_class;
+  }
+}
+// function motultech_preprocess_views_exposed_form(&$variables) {
+//   $form =& $variables['form'];
+//   $formId =& $variables['form']['#id'];
+//   if ($formId == 'views-exposed-form-reseller-block-1') {
+//       // $form['country']['#options']['All']['#attributes']['disabled'] = TRUE;
+//       $form['country']['#options']['All']['#attributes']['disabled'] = TRUE;
+//   }
+// }
+function motultech_views_pre_render(ViewExecutable $view)
+{
+  if ($view->id() == 'applications' && $view->current_display == 'tax_data') {
+    $lang_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    if ($lang_code == 'en') {
+      if (!$view->result[0]->_entity->get('field_image')->target_id) {
+        $header_id = 0;
+        $tid = $view->result[0]->tid;
+        while ($header_id < 1) {
+          $parent = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($tid);
+          $parent = reset($parent);
+          $parent = $parent->getTranslation($lang_code);
+          $tid = $parent->get('tid')->value;
+          if ($parent->get('field_image')->target_id) {
+            $header_id = $parent->get('field_image')->target_id;
+          }
+          $view->result[0]->_entity->set('field_image', $header_id);
+        }
+      }
+    } else {
+      if (!$view->result[0]->_entity->getTranslation($lang_code)->get('field_image')->target_id) {
+        $header_id = 0;
+        $tid = $view->result[0]->tid;
+        while ($header_id < 1) {
+          $parent = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadParents($tid);
+          $parent = reset($parent);
+          $parent = $parent->getTranslation($lang_code);
+          $tid = $parent->get('tid')->value;
+          if ($parent->get('field_image')->target_id) {
+            $header_id = $parent->get('field_image')->target_id;
+          }
+        }
+        $view->result[0]->_entity->getTranslation($lang_code)->set('field_image', $header_id);
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function motultech_preprocess_block(&$variables) {
+  if (isset($variables['content']['#block_content'])) {
+    $content = $variables['content']['#block_content'];
+    
+    if ( method_exists($content,'id') && (
+      $content->id() == '2' ||
+      $content->id() == '3' ||
+      $content->id() == '4' ||
+      $content->id() == '5' ||
+      $content->id() == '6' ||
+      $content->id() == '12' 
+      ) ) {
+      $loader = \Drupal::service('domain.negotiator');
+      $current_domain = $loader->getActiveDomain();
+      $lang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      if ($current_domain->get('id') != "global") {
+        $variables['current_domain_path'] = '/' . $current_domain->get("third_party_settings")["country_path"]["domain_path"] . '/' . $lang . '/';
+      } else {
+        $variables['current_domain_path'] = '/' .  $lang . '/';
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+<?php
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\user\Entity\User;
+use Drupal\Core\Form\FormStateInterface;
+/**
+ * @file
+ * Functions to support theming in the Dsign Backoffice theme.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function dsign_backoffice_preprocess_html(&$variables) {
+  foreach ($variables['user']->getRoles() as $role) {
+    $variables['attributes']['class'][] = 'role-' . $role;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function dsign_backoffice_preprocess_page(&$variables) {
+  global $base_url;
+  $current_path = \Drupal::service('path.current')->getPath();
+  if(!User::load(\Drupal::currentUser()->id())->hasRole('administrator')){
+    if (
+        $current_path == "/admin" ||
+        $current_path == '/admin/structure/menu/manage' ||
+        $current_path == '/admin/structure/menu' ||
+        $current_path == '/admin/structure'
+      ) {
+      $url = $base_url . "/admin/dashboard";
+      $response = new RedirectResponse($url);
+      $response->send();
+    }
+    // Redirect /user/* a /il-mio-profilo
+    if (strpos($current_path, '/user/') === 0) {
+      if (is_numeric(substr($current_path, 6))) {
+        $response = new RedirectResponse('/admin/profilo');
+        $response->send();
+      }
+    }
+  }
+
+  $theme = \Drupal::theme()->getActiveTheme();
+  $variables['font_url'] = $base_url;
+  $variables['theme_path'] = '/' . $theme->getPath();
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function dsign_backoffice_preprocess_node(&$variables) {
+
+}
+
+function dsign_backoffice_preprocess_menu(&$variables, $hook) {
+  global $base_url;
+  $theme = \Drupal::theme()->getActiveTheme();
+  $variables['font_url'] = $base_url;
+  $variables['theme_path'] = '/' . $theme->getPath();
+
+  if ($hook == 'menu__webmaster_menu') {
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    $name = $user->get('name')->value;
+    $variables['username'] = $name;
+    $current_path = \Drupal::request()->getRequestUri();
+    if ($current_path == "/admin/profilo") {
+      $variables['active_profilo'] = 'menu-item--expanded menu-item--active-trail';
+    }
+  }
+
+}
+
+function dsign_backoffice_views_pre_render(&$view) {
+  // dump($view);
+}

@@ -1,0 +1,65 @@
+/* VARIABLES */
+$spacing: 1.875rem; //30px
+$border-radius: 10px;
+$border-color: #707070;
+$border-color-light: #767474;
+$text-color: #444444;
+$title-color: #171717;
+$bianco: #ffffff;
+$rosso: #E73037;
+$verde: #25A35C;
+$grigio: #F5F5F5;
+$grigio-chiaro: #EEEEEE;
+$grigio-scuro: #25282a;
+$card-data: #A8A8A8;
+$translation-links: #7a7a7a;
+$text-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+$footer-bg: $text-color;
+
+
+$overlay: rgba(0,0,0, 0.2);
+// colors
+$primary-shade: $rosso;
+$primary-light: lighten($primary-shade, 37%);
+$primary-dark: darken($primary-shade, 12%);
+$accent-shade: $rosso;
+$accent-light: lighten($accent-shade, 37%);
+$accent-dark: darken($accent-shade, 12%);
+// Reassign color vars to semantic color scheme
+$red: #dc3545;
+$yellow: #ffc107;
+$green: #28a745;
+$cyan: #17a2b8;
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-800: #343a40;
+$theme-colors: ( primary: $accent-shade, secondary: $primary-shade, success: $green, info: $cyan, warning: $yellow, danger: $red, light: $gray-100, dark: $gray-800);
+$brand-primary: $accent-shade;
+//$brand-success: $green;
+//$brand-info: $teal;
+//$brand-warning: $orange;
+//$brand-danger: $red;
+$brand-inverse: $primary-shade;
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg: $white;
+$body-color: $text-color;
+$inverse-bg: $primary-shade;
+$inverse-color: $white;
+// Links
+//
+// Style anchor elements.
+$link-color: $accent-shade;
+$link-decoration: none;
+$link-hover-color: $accent-dark;
+$link-hover-decoration: underline;
+// Comments
+$comment-spacer-x: 1.25em;
+$comment-spacer-y: 1.25em;
+// Responsive font sizes
+$enable-responsive-font-sizes: true;
+$enable-shadows: false;
+$enable-gradients: false;
+// Breadcrumbs (Works only on Bootstrap 5+)
+// $breadcrumb-divider: quote(">");

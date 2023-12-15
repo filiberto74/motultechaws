@@ -1,0 +1,15 @@
+article.media-library-item__preview-wrapper{
+    .media-library-item__preview{
+        padding-bottom: 0;
+    }
+    .field--name-field-copyright{
+        padding: 10px;
+        background-color: red;
+        font-size: 80%;
+        color: white;
+    }
+    .media-library-item__attributes{
+        position: static;
+        
+    }
+}

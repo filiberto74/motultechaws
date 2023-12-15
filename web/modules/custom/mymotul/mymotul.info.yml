@@ -1,0 +1,5 @@
+name: mymotul
+type: module
+description: "mymotul custom block"
+package: MOTULTECH
+core_version_requirement: ^9.0 || ^10.0

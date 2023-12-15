@@ -1,0 +1,242 @@
+.view-home-highlights{
+  margin: calc($spacing * 2 + 10px) 0;
+  #views-bootstrap-home-highlights-block-1,
+  #views-bootstrap-home-highlights-block-2,
+  #views-bootstrap-home-highlights-block-3{
+    border-radius: $border-radius;
+    overflow: hidden;
+    img{
+      width: 100%;
+      height: auto;
+    }
+    .carousel-item{
+      border-radius: $border-radius;
+      overflow: hidden;
+      // max-height: 300px;
+      &.active{
+        .carousel-caption{
+          display: block!important;
+        }
+      }
+
+      .carousel-caption{
+        text-align: left;
+        left: 2rem;
+        right: 2rem;
+        @include media-breakpoint-up(lg){
+          right: 30%;
+        }
+      }
+    }
+  }
+}
+#block-homepagenewsproductfinder{
+  margin-bottom: calc($spacing * 2 + 10px);
+  #block-views-block-home-news-block-1{
+    margin-bottom: $spacing;
+    @include media-breakpoint-up(md){
+      margin-bottom: 0;
+    }
+    .view-home-news{
+      .view-content{
+        .views-row{
+          flex-basis: 100%;
+          display: flex;
+          flex-direction: column;
+          @include media-breakpoint-up(md){
+            flex-basis: 33%;
+          }
+          .wrapper-card{
+            @include media-breakpoint-up(md){
+              border-bottom: 0;
+              margin-bottom: 0;
+              padding-bottom: 0;
+            }
+          }
+          .card-img{
+            @include media-breakpoint-up(md){
+              .field-logo{
+                aspect-ratio: 16 / 9;
+                border-radius: $border-radius;
+                border: 1px solid $grigio-chiaro;
+                position: relative;
+                img{
+                  position: absolute;
+                  padding: $border-radius;
+                  top: 50%;
+                  transform: translateY(-50%) translateX(-50%);
+                  max-height: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+      .view-footer{
+        position: relative;
+        text-align: right;
+        margin-top: $spacing;
+        span{
+          position: relative;
+          z-index: 2;
+          background: $bianco;
+          display: inline-block;
+          padding-left: $spacing;
+        }
+        a{
+          position: relative;
+          z-index: 2;
+          background: $bianco;
+          &:hover{
+            background: $text-color;
+          }
+        }
+        &:before{
+          content: "";
+          height: 3px;
+          width: 100%;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          background: $text-color;
+        }
+      }
+    }
+  }
+  #block-productfinder{
+    display: flex;
+    flex-direction: column;
+    .content{
+      flex: 1;
+      background: $grigio;
+      border-radius: $border-radius;
+      padding: $spacing;
+    }
+  }
+}
+#block-motultechthemotulindustriallubricantsdivision,
+#block-machinegreensafesustainablemachininglubricantssolutions,
+#block-motultechservices{
+  .cta{
+    a{
+      margin-right: calc($spacing / 3);
+      margin-bottom: calc($spacing / 3);
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+}
+#block-motultechthemotulindustriallubricantsdivision{
+  background-color: $grigio;
+  padding: $spacing;
+  border-radius: $border-radius;
+  margin-bottom:  calc($spacing * 2 - 10px);
+  // background-image: url('../images/homepage/barili.svg');
+  // background-repeat: no-repeat;
+  // background-size: contain;
+  // background-position: center right 10%;
+  img{
+    width: 100%;
+    height: auto;
+  }
+}
+#block-machinegreensafesustainablemachininglubricantssolutions{
+    background-color: $grigio;
+    border-radius: $border-radius;
+    margin-bottom:  calc($spacing * 2 - 10px);
+    overflow: hidden;
+    h2{
+      padding: $spacing $spacing 0 $spacing;
+    }
+    .body{
+      padding: $spacing;
+    }
+    .img{
+      padding: 0;
+      border-radius: $border-radius;
+      overflow: hidden;
+      background-image: url('../images/homepage/blocco-green-homepage.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 90%;
+      min-height: 300px;
+    }
+}
+#block-motultechservices{
+  .wrapper-motul-school{
+    background-color: $grigio;
+    border-radius: $border-radius;
+    margin-bottom:  calc($spacing * 2 - 10px);
+    overflow: hidden;
+    .body{
+      padding: $spacing;
+      .logo-motul-school{
+        margin-bottom: $spacing;
+        img{
+          width: 100%;
+          max-width: 240px;
+          height: auto;
+        }
+      }
+    }
+    .img{
+      padding: 0;
+      border-radius: $border-radius;
+      overflow: hidden;
+      background-image: url('../images/homepage/meccanici.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      min-height: 300px;
+    }
+  }
+}
+#block-homepagesupportlubricant{
+  margin-bottom:  calc($spacing * 2 - 10px);
+  &>div.content{
+    flex-direction: column;
+    #block-support,
+    #block-lubricantanalysis,
+    #block-mymotul{
+      position: relative;
+      flex-basis: 100%;
+      background-color: $grigio;
+      border-radius: $border-radius;
+      padding: $spacing;
+      margin-bottom: calc($spacing / 2);
+      .icon{
+        text-align: center;
+        img{
+          max-width: 80px;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+    #block-mymotul{
+      margin-bottom: $spacing;
+    }
+    @include media-breakpoint-only(md){
+      #block-support,
+      #block-lubricantanalysis,
+      #block-mymotul{
+        .icon{
+          margin-bottom: calc($spacing / 3);
+        }
+      }
+    }
+    @include media-breakpoint-up(lg){
+      flex-direction: row;
+      justify-content: space-between;
+      #block-support,
+      #block-lubricantanalysis,
+      #block-mymotul{
+        flex-basis: 30%;
+        margin-bottom: 0;
+
+      }
+    }
+  }
+}

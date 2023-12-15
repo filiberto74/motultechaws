@@ -1,0 +1,33 @@
+
+<h1 class="title uppercase">{{ label }}</h1>
+{% if content.field_media_image.0 %}
+<div class="wrapper-header-grafico" style="background-image: url('{% apply spaceless %}{{ content.field_media_image|escape|striptags('<!-- -->') }}{% endapply %}')">
+  <div class="inner-wrapper">
+    <div class="row">
+      <div class="col title-subtitle">
+        {# <h1 class="title">{{ label }}</h1> #}
+        {# {% if content.field_subtitle.0 %}
+          <h2 class="subtitle">{{ content.field_subtitle }}</h2>
+        {% endif %} #}
+      </div>
+      {% if  content.field_logo.0 %}
+        <div class="col-md-3 logo">
+          {{ content.field_logo }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+<div>
+{% else %}
+  <div class="wrapper-header-nografico">
+    {# <div class="title-wrapper">
+      <h1 class="title">{{ label }}</h1>
+      {% if content.field_subtitle.0 %}
+        <h2 class="subtitle">{{ content.field_subtitle }}</h2>
+      {% endif %}
+    </div> #}
+    {% if content.field_logo.0 %}
+      {{ content.field_logo }}
+    {% endif %}
+  </div>
+{% endif %}

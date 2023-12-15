@@ -1,0 +1,24 @@
+.views-view-table{
+  .views-field{
+    &.views-field-edit-node,
+    &.views-field-delete-node{
+      a{
+        border: 1px solid $verde-scuro-dsign;
+        color: $verde-scuro-dsign;
+        padding: 0.5em 1em;
+        text-decoration: none;
+        font-size: 0.7em;
+        &:hover{
+          text-decoration: none;
+          background: $verde-scuro-dsign;
+          color: $bianco;
+        }
+      }
+    }
+    &.views-field-edit-node{
+      a{
+        font-weight: bold;
+      }
+    }
+  }
+}

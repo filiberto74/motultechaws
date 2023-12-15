@@ -1,0 +1,30 @@
+.dashboard-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+    // margin: -$spacer;
+    .dcol{
+        *{
+            hyphens: auto;
+        }
+        // margin: $spacer;
+        &.dcol-12{
+           flex-basis: 100%; 
+        }
+        @media (min-width: $breakpoint-md) {
+            &.dcol-md-6{
+                flex-basis: 50%; 
+            }
+        }
+        @media (min-width: $breakpoint-lg) {
+            &.dcol-lg-4{
+                flex-basis: 33.33%;
+            }
+        }
+    }
+}
+.dashboard-item{
+    padding: $spacer;
+    border: 1px solid $verde-chiaro-dsign;
+}
