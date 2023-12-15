@@ -796,20 +796,21 @@ $config['image.settings']['allow_insecure_derivatives'] = TRUE;
  * Keep this code block at the end of this file to take full effect.
  */
 
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-  include $app_root . '/' . $site_path . '/settings.local.php';
-}
+
 $databases['default']['default'] = array (
   'database' => 'motultechaws',
-  'username' => 'root',
-  'password' => 'root',
+  'username' => 'motulmeadmin',
+  'password' => 'zDf87#hdFdrhknf783',
   'prefix' => '',
-  'host' => 'localhost',
+  'host' => 'motul-dev.cluster-cdz9etiwqyzs.eu-central-1.rds.amazonaws.com',
   'port' => '3306',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
   'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
 );
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}
 $settings['config_sync_directory'] = 'sites/default/files/config_xHL5UENYznUMGBPvuZlbYiQEZwww3tzC_WBxaH8HLKHtFJr_VEEDOlHTi8eXO9OT74ALKwmFDQ/sync';
 
 
