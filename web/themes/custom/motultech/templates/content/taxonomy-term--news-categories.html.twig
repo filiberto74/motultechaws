@@ -42,6 +42,6 @@
   </div>
 {% elseif view_mode == 'header_grafico' %}
   <h1 class="title uppercase">{{ name }}</h1>
-  <div class="wrapper-header-grafico" style="background-image: url('{% spaceless %}{{ content.field_image|escape|striptags('<!-- -->') }}{% endspaceless %}')">
+  <div class="wrapper-header-grafico" style="background-image: url('{% apply spaceless %}{{ content.field_image|escape|striptags('<!-- -->') }}{% endapply %}')">
   <div>
 {% endif %}
