@@ -24,80 +24,100 @@ $h4-font-size: $font-size-base * 1.5;
 $h5-font-size: $font-size-base * 1.25;
 $h6-font-size: $font-size-base;
 
-body{
+body {
   font-family: $font-family-base;
   font-size: $font-size-base;
 }
-.breadcrumb{
-  font-size: 16px!important;
+
+.breadcrumb {
+  font-size: 16px !important;
 }
-h1, h2, h3, h4, h5, h6{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: $title-color;
   font-family: $font-family-base;
-  &.green{
+
+  &.green {
     color: $verde;
   }
 }
-h1{
+
+h1 {
   font-weight: bold;
   @include font-size(3.125rem);
   line-height: 1.1;
-  &.news{
+
+  &.news {
     @include font-size(2.25rem);
   }
 }
-ul.pagination{
-  li{
-    a,span{
+
+ul.pagination {
+  li {
+
+    a,
+    span {
       @include font-size(1.625rem);
     }
   }
 }
-.field--name-body{
+
+.field--name-body {
   line-height: 1.2;
 }
-.paragraph h4.paragraph-title{
+
+.paragraph h4.paragraph-title {
   font-weight: bold;
   @include font-size(1.875rem);
   line-height: 1.1;
-  &.green{
+
+  &.green {
     color: $verde;
 
   }
 }
-.paragraph{
-  .field--name-field-text.field--type-text-long{
+
+.paragraph {
+  .field--name-field-text.field--type-text-long {
     line-height: 1.2;
   }
 }
 
 .wrapper-header-grafico h1,
-.wrapper-header-nografico h1{
+.wrapper-header-nografico h1 {
   font-weight: bold;
   @include font-size(3.125rem);
   line-height: 1.1;
 }
+
 .wrapper-header-grafico h2,
-.wrapper-header-nografico h2{
+.wrapper-header-nografico h2 {
   font-weight: bold;
   @include font-size(1.875rem);
   line-height: 1.1;
 }
+
 .wrapper-header-grafico h1,
-.wrapper-header-grafico h2{
+.wrapper-header-grafico h2 {
   text-align: right;
 }
 
-.paragraph--type--documents{
-  .field--name-field-document{
-    .field__item{
-      a.document{
+.paragraph--type--documents {
+  .field--name-field-document {
+    .field__item {
+      a.document {
         @include font-size(1.25rem);
         line-height: 1.1;
         font-weight: 500;
         color: $rosso;
         text-decoration: none;
-        div.metadati{
+
+        div.metadati {
           @include font-size(1rem);
           font-weight: 400;
           line-height: 1.2;
@@ -108,8 +128,8 @@ ul.pagination{
   }
 }
 
-.paragraph--type--statement{
-  .field--name-field-text.field--type-text-long{
+.paragraph--type--statement {
+  .field--name-field-text.field--type-text-long {
     @include font-size(1.875rem);
     line-height: 1.1;
     font-weight: 400;
@@ -117,19 +137,21 @@ ul.pagination{
   }
 }
 
-.wrapper-card{
-  .card-body{
-    .card-title{
+.wrapper-card {
+  .card-body {
+    .card-title {
       @include font-size(1.563rem);
       line-height: 1.1;
       font-weight: bold;
       color: $title-color;
     }
-    .abstract{
+
+    .abstract {
       @include font-size(1.125rem);
       line-height: 1.2;
     }
-    .data{
+
+    .data {
       color: $card-data;
       @include font-size(1rem);
     }
@@ -139,66 +161,80 @@ ul.pagination{
 
 
 // homepage
-.view-home-highlights{
+.view-home-highlights {
+
   #views-bootstrap-home-highlights-block-1,
   #views-bootstrap-home-highlights-block-2,
-  #views-bootstrap-home-highlights-block-3{
-    .carousel-caption{
-      h3{
+  #views-bootstrap-home-highlights-block-3 {
+    .carousel-caption {
+      h3 {
         color: $bianco;
         @include font-size(3.125rem);
         line-height: 1.1;
         font-weight: bold;
         text-shadow: $text-shadow;
-        a{
+
+        a {
           color: $bianco;
         }
       }
-      p{
+
+      p {
         color: $bianco;
         @include font-size(1.375rem);
         line-height: 1.2;
-        a{
+
+        a {
           color: $bianco;
         }
       }
     }
   }
 }
+
 #block-views-block-home-news-block-1,
-#block-productfinder{
-  &>h2{
+#block-productfinder {
+  &>h2 {
     @include font-size(1.875rem);
     line-height: 1.1;
     font-weight: bold;
   }
 }
+
 #block-motultechthemotulindustriallubricantsdivision,
 #block-machinegreensafesustainablemachininglubricantssolutions,
 #block-motultechservices,
 #block-support,
 #block-lubricantanalysis,
-#block-mymotul{
-  h2{
+#block-mymotul,
+.field--name-field-paragraphs {
+  h2,
+  h3,
+  h2.title,
+  h3.title {
     @include font-size(1.875rem);
     line-height: 1.1;
     font-weight: bold;
   }
-  .field--name-body{
+
+  .field--name-field-text {
     @include font-size(1.125rem);
     line-height: 1.2;
   }
-  a.btn{
+
+  a.btn {
     @include font-size(1.25rem);
   }
 }
+
 #block-support,
 #block-lubricantanalysis,
-#block-mymotul{
-  h2{
+#block-mymotul {
+  h2 {
     color: $rosso;
   }
 }
+
 //  ---- homepage
 
 
@@ -207,33 +243,36 @@ ul.pagination{
 #block-social,
 #block-contactscolonnaform,
 #block-localdistributors .content,
-#block-views-block-reseller-block-1{
-  &>h2{
+#block-views-block-reseller-block-1 {
+  &>h2 {
     @include font-size(1.25rem);
     line-height: 1.1;
     font-weight: bold;
     margin-bottom: $spacing;
   }
 }
-#block-localdistributors{
-  &>h2{
+
+#block-localdistributors {
+  &>h2 {
     @include font-size(1.875rem);
     line-height: 1.1;
     font-weight: bold;
   }
 }
+
 // ---- pagina contatti
 
 // pagina ricerca
-#block-exposedformsearchblock-1{
-  &>h2{
+#block-exposedformsearchblock-1 {
+  &>h2 {
     @include font-size(1.25rem);
     font-weight: bold;
   }
 }
+
 #block-views-block-search-block-1,
-#block-views-block-search-block-2{
-  &>h2{
+#block-views-block-search-block-2 {
+  &>h2 {
     @include font-size(1.875rem);
     font-weight: bold;
   }
@@ -243,33 +282,35 @@ ul.pagination{
 
 
 // footer
-footer.site-footer{
-  h2{
+footer.site-footer {
+  h2 {
     color: $bianco;
     @include font-size(1rem);
     font-weight: bold;
     margin-bottom: $spacing;
   }
-  .site-footer__top{
-    ul.nav{
-      li.nav-item{
-        a{
+
+  .site-footer__top {
+    ul.nav {
+      li.nav-item {
+        a {
           color: $bianco;
           line-height: 1.1;
         }
       }
     }
   }
-  .site-footer__bottom{
-    *{
+
+  .site-footer__bottom {
+    * {
       @include font-size(0.875rem);
     }
   }
 }
 
 // applications
-#block-views-block-applications-parent-taxonomy{
-  &>h2{
+#block-views-block-applications-parent-taxonomy {
+  &>h2 {
     font-weight: bold;
     @include font-size(1.875rem);
     line-height: 1.1;
@@ -278,8 +319,9 @@ footer.site-footer{
     padding-bottom: calc($spacing / 2);
   }
 }
-.view-applications.view-display-id-application_page{ 
-  .view-header > h2{
+
+.view-applications.view-display-id-application_page {
+  .view-header>h2 {
     font-weight: bold;
     @include font-size(1.875rem);
     line-height: 1.1;
@@ -288,8 +330,9 @@ footer.site-footer{
     padding-bottom: calc($spacing / 2);
   }
 }
-.block-views-blocknews-archive-block-2{
-  &>h2{
+
+.block-views-blocknews-archive-block-2 {
+  &>h2 {
     font-weight: bold;
     @include font-size(1.875rem);
     line-height: 1.1;
@@ -298,7 +341,8 @@ footer.site-footer{
     padding-bottom: calc($spacing / 2);
   }
 }
-h2.related-applications-title{
+
+h2.related-applications-title {
   font-weight: bold;
   @include font-size(1.875rem);
   line-height: 1.1;
@@ -306,51 +350,56 @@ h2.related-applications-title{
   margin-bottom: calc($spacing / 2);
   padding-bottom: calc($spacing / 2);
 }
-.view-applications{
-  &.view-display-id-parent_taxonomy{
-     .view-content{
-      .taxonomy-card-link{
-          .inner-wrapper{
-            h3{
-              color: $bianco;
-              z-index: 2;
+
+.view-applications {
+  &.view-display-id-parent_taxonomy {
+    .view-content {
+      .taxonomy-card-link {
+        .inner-wrapper {
+          h3 {
+            color: $bianco;
+            z-index: 2;
+            font-weight: bold;
+            @include font-size(1.875rem);
+            line-height: 1.1;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+
+  &.view-display-id-application_page {
+    .view-content {
+      .taxonomy-card-link {
+        .inner-wrapper {
+          .content {
+            h3 {
+              color: $rosso;
               font-weight: bold;
-              @include font-size(1.875rem);
+              @include font-size(1.25rem);
               line-height: 1.1;
-              text-transform: uppercase;
+            }
+
+            .description {
+              @include font-size(0.875rem);
             }
           }
+        }
       }
-     } 
+    }
   }
-  &.view-display-id-application_page{
-    .view-content{
-     .taxonomy-card-link{
-         .inner-wrapper{
-            .content{
-              h3{
-                color: $rosso;
-                font-weight: bold;
-                @include font-size(1.25rem);
-                line-height: 1.1;
-              }
-              .description{
-                @include font-size(0.875rem);
-              }
-            }
-         }
-     }
-    } 
- }
 }
-.view-related-applications{
-  h3{
+
+.view-related-applications {
+  h3 {
     color: $rosso;
     font-weight: bold;
     @include font-size(1.25rem);
     line-height: 1.1;
   }
-  .description{
+
+  .description {
     @include font-size(0.875rem);
   }
 }

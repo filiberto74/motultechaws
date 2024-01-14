@@ -14,6 +14,19 @@
       for (var i = 0; i < len; i++) {
         collection[i].remove();
       }
+      // rimuovo il bottone di delete dal form delle pagine tecniche
+      const pagineTecnicheForm = document.querySelectorAll("body.role-webmaster.page-node-type-technical-page #edit-actions #edit-delete");
+      var len = pagineTecnicheForm.length;
+      for (var i = 0; i < len; i++) {
+        pagineTecnicheForm[i].remove();
+      }
+      // rimuovo il bottone di delete dal tab delle pagine tecniche
+      const pagineTecnicheTab = document.querySelectorAll("body.role-webmaster.page-node-type-technical-page #block-tabs a[href$='delete']");
+      var len = pagineTecnicheTab.length;
+      for (var i = 0; i < len; i++) {
+        pagineTecnicheTab[i].closest('li').remove();
+      }
+
 
 
 

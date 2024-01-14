@@ -76,6 +76,14 @@
       //  ----
 
       jQuery('#views-exposed-form-reseller-block-1 select.form-select option[value=All]').attr('disabled', 'disabled');
+
+       // rimuovo il bottone di delete dal tab delle pagine tecniche
+       const pagineTecnicheTab = document.querySelectorAll("body.node--type-technical-page nav.tabs ul.nav-tabs li.nav-item a[href$='delete']");
+       console.log(pagineTecnicheTab);
+       var len = pagineTecnicheTab.length;
+       for (var i = 0; i < len; i++) {
+         pagineTecnicheTab[i].closest('li').remove(); 
+       } 
     }
   };
 
