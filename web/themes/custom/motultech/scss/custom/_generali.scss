@@ -196,3 +196,36 @@ ol.breadcrumb{
 #block-breadcrumbs{
   margin-top: 16px;
 }
+
+
+// banner cookies
+#sliding-popup{
+  box-shadow: 0 4px 24px rgb(0 0 0 / 15%), 0 2px 6px rgb(0 0 0 / 5%);
+  
+  .eu-cookie-compliance-content{
+    padding: calc($spacing * .3) 0;
+  }
+  .eu-cookie-compliance-categories-buttons,
+  #popup-buttons{
+    max-width: 100%!important;
+    margin: 0!important;
+  }
+  @include media-breakpoint-up(lg){
+    width: 500px!important;
+    left: $spacing!important;
+    border-radius: $border-radius;
+  }
+  button{
+    border: 3px solid $text-color;
+    border-radius: 0;
+    color: $text-color;
+    font-weight: 500;
+    padding: 5px;
+    background: $bianco;
+    font-size: 14px;
+  }
+}
+.eu-cookie-withdraw-banner{
+  box-shadow: 0 4px 24px rgb(0 0 0 / 15%), 0 2px 6px rgb(0 0 0 / 5%);
+  border-radius: $border-radius;
+}
